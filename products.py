@@ -17,3 +17,9 @@ print(products)
 
 # 存取二維清單
 # product[0][1] # products清單中的第0格中的第1格
+
+# for loop
+for p in products:
+	print(p)
+	print(p[0], '的價格是', p[1])
+
