@@ -2,6 +2,22 @@
 # 要重複輸入表示要用迴圈
 # while loop 比 for loop 更適合用在， 不知道要用幾次的情況
 products = []
+# 讀取檔案
+with open('products.csv', 'r', encoding = 'utf-8') as f:
+	# 讀取___當作f
+	for line in f:
+		# f 檔裡的每一line
+		if '商品,價格' in line:
+			continue # 繼續
+			# 如果____有出現在line裡的話則跳下一迴
+		name, price = line.strip().split(',')
+		# .strip() = 除掉換行符號(\n)
+		# .split = 切割
+		# 以','作為切割的標準
+		products.append([name, price])
+print(products)
+
+# 讓使用者輸入
 while True:
 	name = input('請輸入商品名稱: ')
 	if name == 'q': # quit
@@ -19,16 +35,16 @@ print(products)
 # 存取二維清單
 # product[0][1] # products清單中的第0格中的第1格
 
+# 印出所有購買紀錄
 # for loop
 for p in products:
-	print(p)
 	print(p[0], '的價格是', p[1])
-
 # 字串可以合併
 # 'abc' + '123' = 'abc123'
 # 'abc' * '3' = 'abcabcabc'
-with open('products.csv', 'w', encoding= 'utf-8') as f:
-	
+
+# 寫入檔案
+with open('products.csv', 'w', encoding = 'utf-8') as f:
 	# encoding = 使用___編碼
 	# 打開並寫入 當作f 
 	# csv檔可以用excel打開
